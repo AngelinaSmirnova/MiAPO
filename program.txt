@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp
+{
+
+    class Program
+    {
+
+        public static void Main(string[] args)
+        {   
+            double S = 0, V = 0, minV = 51, k = 0, Seing = -1, N = 0;
+            int x=0, y=0, z=0,n=10;
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine("Введите длину ребер параллелепипеда");
+                x = Convert.ToInt32(Console.ReadLine());
+                y = Convert.ToInt32(Console.ReadLine());
+                z = Convert.ToInt32(Console.ReadLine());
+            }
+            for (int i = 0; i < n; i++)
+            {
+                S = 2 * (x * y + y * z + x * z);
+                V = x * y * z;
+                Console.WriteLine("Площади {0}, объемы {1}", S, V);
+            }
+              for (int i = 0; i < n; i++)
+            {
+                if (V < minV)
+                    minV = V;
+            }
+            Console.WriteLine("Минимальный объем");
+            Console.WriteLine(minV);
+            for (int i = 0; i < n; i++)
+            {
+                if (V >= 2 && V <= 15)
+                    k++;
+            }
+            Console.WriteLine("Количество фигур");
+            Console.WriteLine(k);
+            for (int i = 0; i < n; i++)
+            {
+                double t = double.MaxValue;
+                double a = Math.Abs(18 - S);
+                if (a < t)
+                {
+                    Seing = Math.Abs(S);
+                    t = a;
+                    N = i+1;
+                }
+            }
+            Console.WriteLine("Пл+ном {0},{1}", Seing, N);
+            Console.ReadKey();
+        }
+    }
+}
